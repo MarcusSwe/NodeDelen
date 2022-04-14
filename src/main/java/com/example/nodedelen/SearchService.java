@@ -25,20 +25,13 @@ public class SearchService {
                 String y = line.toLowerCase();
 
                 if(y.contains(x)){
-
                     test.add(line);
                 }
-
             }
-
-
         } catch (FileNotFoundException e) {
-
+            e.printStackTrace();
         }
-
         return test;
     }
-
 }
 
-//to lower case
