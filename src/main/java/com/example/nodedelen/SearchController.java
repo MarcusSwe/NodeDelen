@@ -2,10 +2,7 @@ package com.example.nodedelen;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -22,8 +19,14 @@ public class SearchController {
     }
 
     @GetMapping("/search")
-    public ArrayList<String> getSearch(){
-        return searchSer.findAll();
+    public ArrayList<String> getSearch(@RequestHeader("password") String password, @RequestHeader("searchItem") String searchItem){
+        if(password.equals("ad1Xs4kC6jfh7Ds8a8dDjk!fh")){
+        return searchSer.findAll(searchItem);
+        } else {
+            ArrayList<String> denied = new ArrayList<>();
+            denied.add("denied");
+            return denied;
+        }
     }
 
 }

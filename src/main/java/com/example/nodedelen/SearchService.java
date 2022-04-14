@@ -6,20 +6,29 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 @Service
 public class SearchService {
 
 
-    public ArrayList<String> findAll(){
+    public ArrayList<String> findAll(String searchItem){
+
+        String x = searchItem.toLowerCase();
 
         ArrayList<String> test = new ArrayList<>();
 
         try (Scanner lasFil = new Scanner(new File("themes.csv"))) {
             while(lasFil.hasNextLine()){
                 String line = lasFil.nextLine();
-                test.add(line);
+                String y = line.toLowerCase();
+
+                if(y.contains(x)){
+
+                    test.add(line);
+                }
+
             }
 
 
@@ -31,3 +40,5 @@ public class SearchService {
     }
 
 }
+
+//to lower case
