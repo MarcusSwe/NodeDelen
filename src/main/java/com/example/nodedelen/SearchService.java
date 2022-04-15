@@ -5,19 +5,17 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 @Service
 public class SearchService {
 
 
-    public ArrayList<String> findAll(String searchItem){
+    public Set<String> findAll(String searchItem){
 
         String x = searchItem.toLowerCase();
 
-        ArrayList<String> test = new ArrayList<>();
+        Set<String> test = new HashSet<>();
 
         try (Scanner lasFil = new Scanner(new File("themes.csv"))) {
             while(lasFil.hasNextLine()){
