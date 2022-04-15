@@ -26,6 +26,10 @@ public class SearchService {
                     test.add(line);
                 }
             }
+            if(test.size()<1){
+                test.add("theme not found");
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
